@@ -8,6 +8,8 @@ import {RouterModule} from '@angular/router';
 import {allAppRoutes} from './routes';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TemperatureComponent } from './temperature/temperature.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApixuService } from "./apixu.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +19,10 @@ import { TemperatureComponent } from './temperature/temperature.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot(allAppRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApixuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
