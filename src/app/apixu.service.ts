@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class ApixuService {
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
+
+  getWeather(location:any){
+
+      return this.http.get(
+          'http://api.weatherstack.com/current?access_key=bd4bbb6dff855d307402dada14b81bc9&query=' + location
+      );
+  }
 }
